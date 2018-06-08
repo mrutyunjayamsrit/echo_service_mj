@@ -21,7 +21,9 @@ restService.post("/echo", function (req, res) {
     return res.json({
         fulfillmentText: speech,
         fulfillmentMessages: [{
-            text: speech
+            text: {
+                speech
+            }
         }],
         source: "basic-nodejs"
     });

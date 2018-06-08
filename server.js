@@ -16,12 +16,13 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function (req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Something went wrong boss.";
+    var speech = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText ? req.body.queryResult.parameters.echoText : "Something went wrong boss.";
 
     return res.json({
-        text: speech,
-        speech: speech,
-        displayText: speech,
+        fulfillmentText: speech,
+        fulfillmentMessages: {
+            text: speech
+        },
         source: "basic-nodejs"
     });
 

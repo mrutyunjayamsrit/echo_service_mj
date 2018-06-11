@@ -34,7 +34,7 @@ restService.post("/shoppe", function (req, res) {
     var speech = "";
     //var speech = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.orderstatus ? OrderStatus : "You don't have any active orders in your list";
 
-    if (req.body.queryResult.parameters.welcome) {
+    if (req.body.queryResult.action == 'input.welcome') {
         speech = "Hello, PV. Do you have a question about your recent order ?";
         return res.json({
             fulfillmentText: speech,
